@@ -1,8 +1,6 @@
 const express = require ('express');
 const bodyParser = require ('body-parser')
-const mongoose = require ('mongoose');
 const MongoClient = require ('mongodb').MongoClient;
-
 
 const app = express();
 
@@ -21,10 +19,13 @@ client.connect(err => {
   const collection = client.db("starwars").collection("data");
   db = client.db('starwars')
 
-  console.log('Conectado!')
+  console.log('Conectado ao Mongodb!')
 });
 
 //
 
+app.use('/', rotaApi)
+
 app.get('/', (req, res) => res.send ('Deu bom ai'))
+
 app.listen(3000);
