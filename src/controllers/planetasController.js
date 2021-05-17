@@ -31,16 +31,19 @@ var swapi = (url) => {
 
         });
     });
-
 }
 
+console.log('API conectada')
+
+
+//exportando a lista dos planetas cadastrados
 exports.index = (req, res) => {
 
     Planeta.get( (err, planetas) => {
         if(err){
             res.json({
                 status: "Erro",
-                message: "Deu ruim aqui ó"
+                message: "Deu ruim aqui ó, lista de planetas."
             });
         }
         res.json({
@@ -57,7 +60,7 @@ exports.index = (req, res) => {
 exports.new = (req, res) => {
     const nomeDoplaneta = req['body']['nome'];
 
-    if (nomeplaneta) {
+    if (nomeDoplaneta) {
 
         swapi('https://swapi.co/api/planets/?search=' + nomeDoplaneta).then( (result) => {
             if (result !== undefined) {
@@ -97,11 +100,11 @@ exports.v = (req, res) => {
     })
 }
 
-//ID - localização 
+//Busca planetas por id
 
 exports.view = (req, res) => {
     Planeta.findById(req.params.planeta_id, (err, planeta) => {
-        ir (err)
+        if (err)
         res.send(err);
         
         res.json({
