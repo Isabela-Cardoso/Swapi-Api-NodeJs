@@ -1,4 +1,7 @@
 # api-swapi-nodejs
+
+# Linguagens utilizadas
+
 Esta aplicação foi desenvolvida em Node.Js e MongoDb.
 
 # Explicação de cada arquivo e estrutura:
