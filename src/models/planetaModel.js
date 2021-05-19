@@ -27,6 +27,6 @@ var planetaSchema = mongoose.Schema({
 
 var Planeta = module.exports = mongoose.model('planeta', planetaSchema);
 
-module.exports.get = (callback, limit) => {
+module.exports.save = (callback, limit) => {
     Planeta.find(callback).limit(limit);
 }
